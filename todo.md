@@ -2,9 +2,6 @@
 
 ## 🔲 Pending
 
-- [ ] **[latex-1] Set up portable LuaLaTeX installation**
-  Write an install script at /home/z/repos/workspace/scripts/install-texlive.sh that downloads and installs a minimal TeXLive (portable, no root) to /home/z/.texlive/ (outside the repo). The script should also install all needed packages: fontspec, geometry, titlesec, tocloft, booktabs, enumitem, xcolor, graphicx, hyperref, microtype, koma-script, tikz, calc, etoolbox, listings, caption. Make it idempotent (skip if already installed). Run the script and verify `lualatex --version` works. Do NOT commit the texlive installation to git — it's in .gitignore.
-
 - [ ] **[latex-2] Create beautiful title page design**
   Design a title page inspired by the Typst Thesis Starter aesthetic: clean, minimalist, modern with strong typographic hierarchy. Should support title, subtitle, author, date, institution, and optional decorative rule/line. Use the LuaLaTeX setup from latex-1. Render a test PDF, convert the title page to PNG (use `pdftoppm` or `convert`), and send the PNG to Discord via send_message for preview. Verify visually.
 
@@ -25,3 +22,4 @@
 - [x] 2026-05-11: Create workspace structure and initial journals
 - [x] 2026-05-11: Set up cron job for periodic task execution
 - [x] 2026-05-11: Add .gitignore to workspace repo
+- [x] 2026-05-12: [latex-1] Set up portable LuaLaTeX installation (TeXLive 2026, scheme-basic + 30 packages, /home/z/.texlive/2026)
