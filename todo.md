@@ -2,9 +2,6 @@
 
 ## 🔲 Pending
 
-- [ ] **[latex-2] Create beautiful title page design**
-  Design a title page inspired by the Typst Thesis Starter aesthetic: clean, minimalist, modern with strong typographic hierarchy. Should support title, subtitle, author, date, institution, and optional decorative rule/line. Use the LuaLaTeX setup from latex-1. Render a test PDF, convert the title page to PNG (use `pdftoppm` or `convert`), and send the PNG to Discord via send_message for preview. Verify visually.
-
 - [ ] **[latex-3] Create elegant TOC and sectioning system**
   Build a TOC with clean formatting, dotted leaders, and proper chapter/section/subsection hierarchy. Style headings consistently with the title page design. Include custom chapter pages (decorative elements on chapter openers). Render a test PDF with sample chapters, convert key pages to PNG, send to Discord for preview.
 
@@ -71,3 +68,4 @@ Requirements: German language, multi-speaker (or at least multiple voice options
 - [x] 2026-05-11: Set up cron job for periodic task execution
 - [x] 2026-05-11: Add .gitignore to workspace repo
 - [x] 2026-05-12: [latex-1] Set up portable LuaLaTeX installation (TeXLive 2026, scheme-basic + 30 packages, /home/z/.texlive/2026)
+- [x] 2026-05-12: [latex-2] Create beautiful title page design (dark + light themes, TikZ, 8/10 VLM rating)
