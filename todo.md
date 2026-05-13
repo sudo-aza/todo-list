@@ -2,12 +2,6 @@
 
 ## 🔲 Pending
 
-- [x] **[latex-3] Create elegant TOC and sectioning system** (VLM: TOC 7/10, content 9/10)
-  Build a TOC with clean formatting, dotted leaders, and proper chapter/section/subsection hierarchy. Style headings consistently with the title page design. Include custom chapter pages (decorative elements on chapter openers). Render a test PDF with sample chapters, convert key pages to PNG, send to Discord for preview.
-
-- [ ] **[latex-4] Create document element templates (tables, lists, figures, code)**
-  Build beautiful templates for: tables (booktabs-style, alternating row colors), ordered/unordered lists (custom bullets/numbers, proper spacing), figure environments with captions, code listings (syntax highlighting), blockquotes, and definition/description lists. Each should match the overall document style. Render test pages, convert to PNG, send to Discord.
-
 - [ ] **[latex-5] Package everything into an importable config**
   Consolidate all the above into a single `\input{}`-able or `\usepackage{}`-style file (e.g. `sudodoc.sty`). Write a sample document demonstrating all features (title page, TOC, chapters, tables, lists, code blocks). Render final sample PDF, convert all pages to PNGs, send key pages to Discord. Create a `latex-template` repo on GitHub and push the .sty, sample doc, and install script there.
 
@@ -70,3 +64,4 @@ Requirements: German language, multi-speaker (or at least multiple voice options
 - [x] 2026-05-12: [latex-1] Set up portable LuaLaTeX installation (TeXLive 2026, scheme-basic + 30 packages, /home/z/.texlive/2026)
 - [x] 2026-05-12: [latex-2] Create beautiful title page design (dark + light themes, TikZ, 8/10 VLM rating)
 - [x] 2026-05-13: [latex-3] Create elegant TOC and sectioning system (titletoc, chapter openers, 9/10 content rating)
+- [x] 2026-05-13: [latex-4] Document element templates (tables, lists, code, blockquotes, figures, 8-9/10 VLM rating)
