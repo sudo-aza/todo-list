@@ -2,10 +2,7 @@
 
 ## 🔲 Pending
 
-- [ ] **[latex-5] Package everything into an importable config**
-  Consolidate all the above into a single `\input{}`-able or `\usepackage{}`-style file (e.g. `sudodoc.sty`). Write a sample document demonstrating all features (title page, TOC, chapters, tables, lists, code blocks). Render final sample PDF, convert all pages to PNGs, send key pages to Discord. Create a `latex-template` repo on GitHub and push the .sty, sample doc, and install script there.
-
-- [ ] **[analytics] Build progress analytics scripts — DO NOT START BEFORE 2026-05-13**
+- [ ] **[analytics] Build progress analytics scripts**
   Write scripts in /home/z/repos/workspace/scripts/analytics/ that track and visualize: total LOC across repos, todo count (pending vs done) over time, tasks completed per maintenance run, repo growth over time. Use matplotlib for plots. Read git log and todo.md history. Save plots as PNGs, send to Discord. This task depends on having activity data — do NOT start before May 13th 2026.
 
 ---
@@ -65,3 +62,4 @@ Requirements: German language, multi-speaker (or at least multiple voice options
 - [x] 2026-05-12: [latex-2] Create beautiful title page design (dark + light themes, TikZ, 8/10 VLM rating)
 - [x] 2026-05-13: [latex-3] Create elegant TOC and sectioning system (titletoc, chapter openers, 9/10 content rating)
 - [x] 2026-05-13: [latex-4] Document element templates (tables, lists, code, blockquotes, figures, 8-9/10 VLM rating)
+- [x] 2026-05-13: [latex-5] Package everything into sudodoc.sty v1.0.0 (latex-template repo, 8/10 VLM rating)
