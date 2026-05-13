@@ -1,9 +1,6 @@
 # Todo List
 
-## 🔲 Pending
-
-- [ ] **[analytics] Build progress analytics scripts**
-  Write scripts in /home/z/repos/workspace/scripts/analytics/ that track and visualize: total LOC across repos, todo count (pending vs done) over time, tasks completed per maintenance run, repo growth over time. Use matplotlib for plots. Read git log and todo.md history. Save plots as PNGs, send to Discord. This task depends on having activity data — do NOT start before May 13th 2026.
+## Pending
 
 ---
 
@@ -53,7 +50,7 @@ Requirements: German language, multi-speaker (or at least multiple voice options
 - [ ] **[tts-13] Create TTS comparison summary**
   After trying all viable engines (or skipping those that don't support German / don't fit hardware), write a comparison summary to /home/z/repos/workspace/notes/tts-comparison.md. Include: quality ranking, speed benchmark, RAM usage, pros/cons, recommended engine. Send a summary table to Discord. Wait for user to pick their favorite.
 
-## ✅ Done
+## Done
 - [x] 2026-05-11: Set up GitHub account and repos
 - [x] 2026-05-11: Create workspace structure and initial journals
 - [x] 2026-05-11: Set up cron job for periodic task execution
@@ -63,3 +60,4 @@ Requirements: German language, multi-speaker (or at least multiple voice options
 - [x] 2026-05-13: [latex-3] Create elegant TOC and sectioning system (titletoc, chapter openers, 9/10 content rating)
 - [x] 2026-05-13: [latex-4] Document element templates (tables, lists, code, blockquotes, figures, 8-9/10 VLM rating)
 - [x] 2026-05-13: [latex-5] Package everything into sudodoc.sty v1.0.0 (latex-template repo, 8/10 VLM rating)
+- [x] 2026-05-14: [analytics] Build progress analytics scripts (matplotlib, 5 plots, git log parsing)
