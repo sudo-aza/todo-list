@@ -2,6 +2,22 @@
 
 ## Pending
 
+### LaTeX Template Refinements (from Robby_Blue review — do these BEFORE TTS research)
+
+The lists, tables, code listings, blockquotes, figures, and math all look great. Keep those as-is. The following issues need fixing:
+
+- [ ] **[latex-6] Fix chapter opener pages**
+  The dark chapter divider pages look broken — some pages have just a black top bar with no visible text. The dark background pages with white text aren't rendering correctly (possibly the watermark number overlapping, or text invisible at certain zoom/DPI levels). Fix: either make the chapter number watermark smaller/more subtle, ensure text is clearly readable, or switch to a lighter design that still looks distinct from content pages. Rebuild in the latex-template repo, update sudodoc.sty, compile sample, send PNGs to Discord.
+
+- [ ] **[latex-7] Fix table of contents width**
+  The TOC doesn't take up the full page width — looks like it has excessive right/left margins or the content area is narrower than it should be. Fix the TOC layout so entries span the full usable width. Update sudodoc.sty, recompile sample, send before/after PNGs to Discord.
+
+- [ ] **[latex-8] Fix dark mode vs light mode rendering inconsistencies**
+  Some elements render differently or look broken when switching between dark and light variants. Audit both themes systematically: title page, TOC, section headings, headers/footers, chapter openers. Ensure consistent rendering across both modes. Document what was wrong and what was fixed. Update sudodoc.sty, recompile, send comparison PNGs to Discord.
+
+- [ ] **[latex-9] Redesign section headings with colored full-width boxes**
+  Keep black text on white background for body content. For section headings, create full-width colored boxes (e.g., blue for \section, lighter blue/teal for \subsection, etc.) with the section number and name in white text. The color should vary by heading level. Add optional decorations (thin rule, subtle gradient, or geometric accent) above or below the box. This replaces the current TikZ underline + badge approach. Update sudodoc.sty, recompile sample, send PNGs to Discord.
+
 ---
 
 ### TTS Research: Best German Multi-Speaker TTS for CPU (4 vCPU, 8GB RAM, no GPU)
