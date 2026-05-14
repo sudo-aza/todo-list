@@ -6,9 +6,6 @@
 
 The lists, tables, code listings, blockquotes, figures, and math all look great. Keep those as-is. The following issues need fixing:
 
-- [ ] **[latex-7] Fix table of contents width**
-  The TOC doesn't take up the full page width — looks like it has excessive right/left margins or the content area is narrower than it should be. Fix the TOC layout so entries span the full usable width. Update sudodoc.sty, recompile sample, send before/after PNGs to Discord.
-
 - [ ] **[latex-8] Fix dark mode vs light mode rendering inconsistencies**
   Some elements render differently or look broken when switching between dark and light variants. Audit both themes systematically: title page, TOC, section headings, headers/footers, chapter openers. Ensure consistent rendering across both modes. Document what was wrong and what was fixed. Update sudodoc.sty, recompile, send comparison PNGs to Discord.
 
@@ -75,3 +72,4 @@ Requirements: German language, multi-speaker (or at least multiple voice options
 - [x] 2026-05-13: [latex-5] Package everything into sudodoc.sty v1.0.0 (latex-template repo, 8/10 VLM rating)
 - [x] 2026-05-14: [analytics] Build progress analytics scripts (matplotlib, 5 plots, git log parsing)
 - [x] 2026-05-14: [latex-6] Fix chapter opener pages (sudodoc.sty v1.1.0, newgeometry approach, 8/10 VLM)
+- [x] 2026-05-14: [latex-7] Fix TOC width (sudodoc.sty v1.2.0, dotfill leaders, 9/10 VLM)
