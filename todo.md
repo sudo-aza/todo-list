@@ -8,9 +8,6 @@ Research completed: see /home/z/repos/workspace/notes/tts-research.md
 Rankings: Piper > Kokoro > ZeroVOX > Bark > CosyVoice > F5-TTS > Coqui XTTS v2
 Eliminated: MeloTTS (no DE), StyleTTS2 (no DE), Fish Speech (too heavy), MMS TTS (robotic+NC), Thorsten-Voice (same as Piper)
 
-- [ ] **[tts-1] Try Piper TTS with Thorsten German voice**
-  Top pick. Install piper-tts, download Thorsten high-quality ONNX model from HuggingFace (Trelis/piper-de-de-thorsten-high). Test neutral + emotional variants. Generate a ~30s German sample (short story or dialogue). Send WAV/MP3 to Discord. Note quality, speed, naturalness. GPL-3.0 + CC0 voice data.
-
 - [ ] **[tts-2] Try Kokoro TTS German (ONNX model)**
   Community model (huggingFresse/Kokoro-82M-ONNX-German-Martin), 1 male voice "Martin". Install kokoro-onnx, download German model. Generate a German sample, compare to Piper. Send to Discord.
 
@@ -55,3 +52,4 @@ Eliminated: MeloTTS (no DE), StyleTTS2 (no DE), Fish Speech (too heavy), MMS TTS
 - [x] 2026-05-14: [latex-8] Fix dark/light mode rendering (sudodoc.sty v1.3.0, theme toggle, 9-10/10 VLM)
 - [x] 2026-05-14: [latex-9] Redesign section headings (sudodoc.sty v1.4.0, colored full-width boxes, 9-10/10 VLM)
 - [x] 2026-05-14: [tts-research] Research and rank 12 TTS engines for German on CPU. Top 3: Piper+Thorsten, Kokoro, ZeroVOX. 5 engines eliminated (no German or doesn't fit hardware). Findings in notes/tts-research.md.
+- [x] 2026-05-15: [tts-1] Try Piper TTS + Thorsten German voice. Installed piper-tts (venv), downloaded high-quality (109 MB) + emotional medium (74 MB, 8 speakers) models. Generated 32s neutral sample in 11s (~2.9x realtime). Tested all 8 emotions. Clear natural German, male only. Install script: scripts/install-piper.sh. Audio sent to Discord.
