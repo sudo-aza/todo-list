@@ -6,9 +6,6 @@
 
 The lists, tables, code listings, blockquotes, figures, and math all look great. Keep those as-is. The following issues need fixing:
 
-- [ ] **[latex-8] Fix dark mode vs light mode rendering inconsistencies**
-  Some elements render differently or look broken when switching between dark and light variants. Audit both themes systematically: title page, TOC, section headings, headers/footers, chapter openers. Ensure consistent rendering across both modes. Document what was wrong and what was fixed. Update sudodoc.sty, recompile, send comparison PNGs to Discord.
-
 - [ ] **[latex-9] Redesign section headings with colored full-width boxes**
   Keep black text on white background for body content. For section headings, create full-width colored boxes (e.g., blue for \section, lighter blue/teal for \subsection, etc.) with the section number and name in white text. The color should vary by heading level. Add optional decorations (thin rule, subtle gradient, or geometric accent) above or below the box. This replaces the current TikZ underline + badge approach. Update sudodoc.sty, recompile sample, send PNGs to Discord.
 
@@ -73,3 +70,4 @@ Requirements: German language, multi-speaker (or at least multiple voice options
 - [x] 2026-05-14: [analytics] Build progress analytics scripts (matplotlib, 5 plots, git log parsing)
 - [x] 2026-05-14: [latex-6] Fix chapter opener pages (sudodoc.sty v1.1.0, newgeometry approach, 8/10 VLM)
 - [x] 2026-05-14: [latex-7] Fix TOC width (sudodoc.sty v1.2.0, dotfill leaders, 9/10 VLM)
+- [x] 2026-05-14: [latex-8] Fix dark/light mode rendering (sudodoc.sty v1.3.0, theme toggle, 9-10/10 VLM)
