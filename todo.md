@@ -6,9 +6,6 @@
 
 The lists, tables, code listings, blockquotes, figures, and math all look great. Keep those as-is. The following issues need fixing:
 
-- [ ] **[latex-6] Fix chapter opener pages**
-  The dark chapter divider pages look broken — some pages have just a black top bar with no visible text. The dark background pages with white text aren't rendering correctly (possibly the watermark number overlapping, or text invisible at certain zoom/DPI levels). Fix: either make the chapter number watermark smaller/more subtle, ensure text is clearly readable, or switch to a lighter design that still looks distinct from content pages. Rebuild in the latex-template repo, update sudodoc.sty, compile sample, send PNGs to Discord.
-
 - [ ] **[latex-7] Fix table of contents width**
   The TOC doesn't take up the full page width — looks like it has excessive right/left margins or the content area is narrower than it should be. Fix the TOC layout so entries span the full usable width. Update sudodoc.sty, recompile sample, send before/after PNGs to Discord.
 
@@ -77,3 +74,4 @@ Requirements: German language, multi-speaker (or at least multiple voice options
 - [x] 2026-05-13: [latex-4] Document element templates (tables, lists, code, blockquotes, figures, 8-9/10 VLM rating)
 - [x] 2026-05-13: [latex-5] Package everything into sudodoc.sty v1.0.0 (latex-template repo, 8/10 VLM rating)
 - [x] 2026-05-14: [analytics] Build progress analytics scripts (matplotlib, 5 plots, git log parsing)
+- [x] 2026-05-14: [latex-6] Fix chapter opener pages (sudodoc.sty v1.1.0, newgeometry approach, 8/10 VLM)
