@@ -2,51 +2,42 @@
 
 ## Pending
 
-### TTS Research: Best German Multi-Speaker TTS for CPU (4 vCPU, 8GB RAM, no GPU)
+### TTS Testing: Best German Multi-Speaker TTS for CPU (4 vCPU, 8GB RAM, no GPU)
 
-Requirements: German language, multi-speaker (or at least multiple voice options), not monotonous, runs on CPU-only hardware, open source, best possible quality.
-
-- [ ] **[tts-research] Research and rank all viable TTS engines for German on CPU**
-  Do a deep-dive web research on every TTS engine that could possibly run on this hardware (4 vCPU, 8GB RAM, no GPU). For each engine, check: (1) German language support, (2) multiple voices/speakers, (3) prosody and naturalness quality, (4) CPU RAM/speed requirements, (5) license, (6) installation complexity. Candidates to investigate thoroughly (not limited to): Piper TTS (thorsten voice), Coqui XTTS v2, Fish Speech, Kokoro (German ONNX models exist), MeloTTS, CosyVoice, F5-TTS (German fine-tune), StyleTTS2, Thorsten-Voice (native German), MMS TTS (Meta), ZeroVOX, Bark, Mimic3, Glow-TTS. Write findings to /home/z/repos/workspace/notes/tts-research.md. Rank engines by quality-feasibility on our hardware. Add individual try-todos for every engine that is viable.
+Research completed: see /home/z/repos/workspace/notes/tts-research.md
+Rankings: Piper > Kokoro > ZeroVOX > Bark > CosyVoice > F5-TTS > Coqui XTTS v2
+Eliminated: MeloTTS (no DE), StyleTTS2 (no DE), Fish Speech (too heavy), MMS TTS (robotic+NC), Thorsten-Voice (same as Piper)
 
 - [ ] **[tts-1] Try Piper TTS with Thorsten German voice**
-  Piper is lightweight ONNX-based TTS, fast on CPU. Thorsten is a high-quality German voice model. Install piper-tts, download German voice models (thorsten medium/high quality, possibly multiple voices). Generate a ~30s German sample with natural prosody (a short story or dialogue). Send WAV/MP3 to Discord. Note quality, speed, and naturalness.
+  Top pick. Install piper-tts, download Thorsten high-quality ONNX model from HuggingFace (Trelis/piper-de-de-thorsten-high). Test neutral + emotional variants. Generate a ~30s German sample (short story or dialogue). Send WAV/MP3 to Discord. Note quality, speed, naturalness. GPL-3.0 + CC0 voice data.
 
 - [ ] **[tts-2] Try Kokoro TTS German (ONNX model)**
-  Kokoro has a German ONNX model (Kokoro-82M-ONNX-German-Martin by FuggingFresse on HuggingFace). Very small model (82M), should be fast on CPU. Install kokoro or use the ONNX runtime directly. Generate a German sample. Send to Discord.
+  Community model (huggingFresse/Kokoro-82M-ONNX-German-Martin), 1 male voice "Martin". Install kokoro-onnx, download German model. Generate a German sample, compare to Piper. Send to Discord.
 
-- [ ] **[tts-3] Try MeloTTS German**
-  MeloTTS by MyShell.ai — fast enough for real-time CPU inference. Check if German language pack is available (it supports EN, ZH, JP, KR — German may need a community addon). If German is available, install and generate a sample. If no German support exists, skip and note in research.
-
-- [ ] **[tts-4] Try Fish Speech (fish-speech)**
-  Fish Speech — SOTA open source multilingual TTS. Supports many languages including German. Uses LLM-based architecture. Check if the smaller model can run on 8GB CPU. Install, configure for German, generate a sample with a natural/expressive voice. May be slow on CPU but quality should be excellent.
-
-- [ ] **[tts-5] Try Coqui XTTS v2**
-  Coqui XTTS v2 — supports 17 languages including German, zero-shot voice cloning, multi-speaker. Can be heavy on CPU (may need quantization or smaller settings). Install TTS package, try German with default and cloned voices. Generate sample. Note if 8GB RAM is sufficient.
+- [ ] **[tts-5] Try Coqui XTTS v2** (was tts-4)
+  Abandoned but mature. Supports German (Coqui was German company), zero-shot voice cloning from 6s reference. Non-commercial license (CPML). pip install TTS. Test German with default voice AND try cloning a female voice from reference audio. Note RAM usage and speed on CPU.
 
 - [ ] **[tts-6] Try F5-TTS German fine-tune**
-  F5-TTS is a diffusion-transformer based TTS. There is a German fine-tuned model on HuggingFace by tabularisai. Check CPU requirements, install, generate a German sample. Diffusion models are typically slow on CPU but quality may be worth it.
+  Diffusion-transformer, 335M params, excellent German fine-tunes (hvoss-techfak/F5-TTS-German on HuggingFace). ~2-3 GB VRAM, fits our hardware. MIT code but CC-BY-NC model weights (non-commercial). pip install f5-tts. Generate sample, note quality vs speed tradeoff.
 
-- [ ] **[tts-7] Try StyleTTS2**
-  StyleTTS2 — aims for human-level TTS using style diffusion and adversarial training. Check if it supports German (originally EN-focused). If German works or can be adapted, install and test. Requires significant RAM — may not fit in 8GB. Document findings.
-
-- [ ] **[tts-8] Try CosyVoice**
-  CosyVoice by Alibaba — multi-lingual LLM-based TTS. Check if it supports German (9 languages + 18 dialects listed). If German is available, try running on CPU. Likely very heavy (LLM-based) — may not fit on 8GB RAM without quantization.
-
-- [ ] **[tts-9] Try Thorsten-Voice (native German TTS)**
-  Thorsten-Voice is a dedicated German TTS project with multiple models for Coqui/Piper. Check what backend options exist beyond Piper (the tts-research + tts-1 may overlap). If there are standalone thorsten models for other backends, try those. Generate a German sample.
-
-- [ ] **[tts-10] Try MMS TTS (Meta) German**
-  Meta's Massively Multilingual Speech (MMS) TTS — supports 1100+ languages including German. Very lightweight, designed for low-resource. Install via transformers, generate a German sample. Quality may be basic but worth comparing as baseline.
+- [ ] **[tts-8] Try CosyVoice (300M model)**
+  LLM-based by Alibaba, Apache 2.0 license (commercial OK), German is officially supported. Complex install (clone from source, Python 3.10). Try the 300M model — may be tight on 8 GB RAM. If it fits, generate sample and evaluate quality advantage over lighter options.
 
 - [ ] **[tts-11] Try ZeroVOX German**
-  ZeroVOX — FastSpeech2-based with zero-shot speaker cloning. Claims real-time CPU and embedded use. Check German language support. If available, install via pip (zerovox), generate a German sample.
+  Ultra-lightweight FastSpeech2, native German+English, pip install zerovox. Early alpha quality but very fast. Zero-shot speaker cloning. Test German output, note quality gap vs heavier models.
 
 - [ ] **[tts-12] Try Bark (Suno) German**
-  Bark by Suno — multilingual TTS with expressive/narrative capabilities. Supports German. Can be slow on CPU and produces long-form audio. Install, generate a short expressive German sample. Note quality vs speed tradeoff.
+  Expressive generative TTS, MIT license, 100+ speaker presets. pip install suno-bark. Test with small_models=True (6 GB VRAM / 8 GB RAM). Generate German sample, note hallucinations and 13s generation limit.
 
 - [ ] **[tts-13] Create TTS comparison summary**
-  After trying all viable engines (or skipping those that don't support German / don't fit hardware), write a comparison summary to /home/z/repos/workspace/notes/tts-comparison.md. Include: quality ranking, speed benchmark, RAM usage, pros/cons, recommended engine. Send a summary table to Discord. Wait for user to pick their favorite.
+  After trying all viable engines (or skipping those that don't fit), write a comparison summary to /home/z/repos/workspace/notes/tts-comparison.md. Include: quality ranking, speed benchmark, RAM usage, pros/cons, recommended engine. Send a summary table to Discord. Wait for user to pick their favorite.
+
+## Skipped (research findings)
+- ~~[tts-3] MeloTTS~~ — No German support (Issue #145 open, no model released)
+- ~~[tts-4] Fish Speech~~ — S2 Pro needs 24 GB VRAM, doesn't fit 4 vCPU / 8 GB RAM
+- ~~[tts-7] StyleTTS2~~ — English only, author unresponsive to multilingual requests
+- ~~[tts-9] Thorsten-Voice~~ — Voice dataset, not a separate engine. Already covered under Piper TTS
+- ~~[tts-10] MMS TTS~~ — Robotic quality + CC-BY-NC 4.0 non-commercial license
 
 ## Done
 - [x] 2026-05-11: Set up GitHub account and repos
@@ -63,3 +54,4 @@ Requirements: German language, multi-speaker (or at least multiple voice options
 - [x] 2026-05-14: [latex-7] Fix TOC width (sudodoc.sty v1.2.0, dotfill leaders, 9/10 VLM)
 - [x] 2026-05-14: [latex-8] Fix dark/light mode rendering (sudodoc.sty v1.3.0, theme toggle, 9-10/10 VLM)
 - [x] 2026-05-14: [latex-9] Redesign section headings (sudodoc.sty v1.4.0, colored full-width boxes, 9-10/10 VLM)
+- [x] 2026-05-14: [tts-research] Research and rank 12 TTS engines for German on CPU. Top 3: Piper+Thorsten, Kokoro, ZeroVOX. 5 engines eliminated (no German or doesn't fit hardware). Findings in notes/tts-research.md.
