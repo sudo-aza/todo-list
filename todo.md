@@ -2,12 +2,7 @@
 
 ## Pending
 
-### TTS Retry: Actually test the heavier engines (zoe said previous skip reasons were nonsensical)
-
-Previous runs pre-skipped engines based on speculative size estimates instead of actually trying. Now retrying with proper disk management.
-
-- [ ] **[tts-retry-2] Bark — actually install and test**
-  Same approach. `pip install suno-bark`, download model, generate German sample. Previous claimed "weights_only compat issue" — actually reproduce it.
+(no pending tasks — TTS retry evaluation complete)
 
 ## Skipped (research findings)
 - ~~[tts-3] MeloTTS~~ — No German support (Issue #145 open, no model released)
@@ -19,7 +14,7 @@ Previous runs pre-skipped engines based on speculative size estimates instead of
 - ~~[tts-9] Thorsten-Voice~~ — Voice dataset, not a separate engine. Already covered under Piper TTS
 - ~~[tts-10] MMS TTS~~ — Robotic quality + CC-BY-NC 4.0 non-commercial license
 - ~~[tts-11] ZeroVOX~~ — pip install fails: readline build error + missing deps (h5py, nemo_text_processing, nltk, lightning). Early alpha quality not worth the dependency pain.
-- ~~[tts-12] Bark~~ — Previous skip was speculative. Retrying in tts-retry-2.
+- ~~[tts-12] Bark~~ — RETRIED AND WORKS. See tts-retry-2. Real error: PyTorch 2.6+ weights_only=True breaks bark's old pickle format. Fix: monkey-patch torch.load to use weights_only=False. Small models only fit with careful venv management.
 
 ## Done
 - [x] 2026-05-11: Set up GitHub account and repos
@@ -42,4 +37,5 @@ Previous runs pre-skipped engines based on speculative size estimates instead of
 - [x] 2026-05-15: [tts-blocked] Attempted Coqui XTTS v2, F5-TTS, ZeroVOX, Bark. All blocked by VM constraints: 10GB disk (XTTS 2GB model + PyTorch deps exceed space), dependency build failures (ZeroVOX readline), PyTorch compat issues (Bark), voice cloning requires reference audio (F5-TTS). Only CosyVoice remained to try.
 - [x] 2026-05-15: [tts-8] CosyVoice 300M — Skipped after research. Hard blockers: requires Python 3.10 (ttsfrd no cp312 wheel), 16+ GB RAM for CPU inference, 8-10 GB disk for full install. Not viable on our VM.
 - [x] 2026-05-15: [tts-13] Created final TTS comparison summary at notes/tts-comparison.md. 2 engines tested successfully (Piper 8 voices, Kokoro 1 voice, both 2.9x realtime), 10 engines skipped due to hardware/license/install constraints. Recommendation: Piper + Thorsten as primary, Kokoro as secondary.
-- [x] 2026-05-15: [tts-retry-1] Coqui XTTS v2 RETRIED SUCCESSFULLY. Previous "no space" claim was wrong — it fits fine (venv 1.7 GB + model 1.8 GB = 3.5 GB). Installed coqui-tts + PyTorch CPU + torchcodec. Generated German samples with 3 speakers (1 male, 2 female). Male voice 0.81x realtime, female 0.33-0.40x realtime. Voice cloning also works. 65 built-in speakers, CPML non-commercial license. Install script: scripts/install-xtts.sh. Audio sent to Discord.
+- [x] 2026-05-15: [tts-retry-1] Coqui XTTS v2 RETRIED SUCCESSFULLY. Previous "no space" claim was wrong — it fits fine (venv 1.7 GB + model 1.8 GB = 3.5 GB). Installed coqui-tts + PyTorch CPU + torchcodec. Generated German samples with 3 speakers (1 male, 2 female). Male 0.81x realtime, female 0.33-0.40x realtime. Voice cloning also works. 65 built-in speakers, CPML non-commercial license. Install script: scripts/install-xtts.sh. Audio sent to Discord.
+- [x] 2026-05-16: [tts-retry-2] Bark RETRIED AND WORKS. Previous "weights_only compat issue" claim was real but fixable. Actual errors: (1) PyTorch 2.6+ defaults weights_only=True breaking bark's old pickle format — fix: monkey-patch torch.load to weights_only=False. (2) First attempt used full venv (5.1 GB) leaving no room for models — fix: install bark --no-deps then add deps individually (1.3 GB venv). Generated 11.9s German audio in 95.8s = 0.12x realtime (very slow). Total footprint: 1.3 GB venv + 4.4 GB models + 89 MB codec = 5.9 GB. Audio sent to Discord. License: MIT.
