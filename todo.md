@@ -6,21 +6,20 @@
 
 Previous runs pre-skipped engines based on speculative size estimates instead of actually trying. Now retrying with proper disk management.
 
-- [ ] **[tts-retry-1] Coqui XTTS v2 — actually install and test**
-  7.5 GB free disk right now. Install `TTS` package in clean venv, download XTTS v2 model (~1.8 GB). Generate German sample with same test text. Measure realtime factor. Test voice cloning if possible. Report REAL errors, not estimates.
-
 - [ ] **[tts-retry-2] Bark — actually install and test**
   Same approach. `pip install suno-bark`, download model, generate German sample. Previous claimed "weights_only compat issue" — actually reproduce it.
 
 ## Skipped (research findings)
 - ~~[tts-3] MeloTTS~~ — No German support (Issue #145 open, no model released)
 - ~~[tts-4] Fish Speech~~ — S2 Pro needs 24 GB VRAM, doesn't fit 4 vCPU / 8 GB RAM
+- ~~[tts-5] Coqui XTTS v2~~ — ~~Model download (2GB) exceeds VM disk~~ RETRIED AND WORKS. See tts-retry-1.
 - ~~[tts-6] F5-TTS~~ — Requires reference audio for voice cloning (no zero-shot without sample). Would need Piper installed first to generate reference. CC-BY-NC non-commercial license.
 - ~~[tts-7] StyleTTS2~~ — English only, author unresponsive to multilingual requests
 - ~~[tts-8] CosyVoice 300M~~ — Requires Python 3.10 (ttsfrd has no cp312 wheel). Hard Python blocker.
 - ~~[tts-9] Thorsten-Voice~~ — Voice dataset, not a separate engine. Already covered under Piper TTS
 - ~~[tts-10] MMS TTS~~ — Robotic quality + CC-BY-NC 4.0 non-commercial license
 - ~~[tts-11] ZeroVOX~~ — pip install fails: readline build error + missing deps (h5py, nemo_text_processing, nltk, lightning). Early alpha quality not worth the dependency pain.
+- ~~[tts-12] Bark~~ — Previous skip was speculative. Retrying in tts-retry-2.
 
 ## Done
 - [x] 2026-05-11: Set up GitHub account and repos
@@ -43,3 +42,4 @@ Previous runs pre-skipped engines based on speculative size estimates instead of
 - [x] 2026-05-15: [tts-blocked] Attempted Coqui XTTS v2, F5-TTS, ZeroVOX, Bark. All blocked by VM constraints: 10GB disk (XTTS 2GB model + PyTorch deps exceed space), dependency build failures (ZeroVOX readline), PyTorch compat issues (Bark), voice cloning requires reference audio (F5-TTS). Only CosyVoice remained to try.
 - [x] 2026-05-15: [tts-8] CosyVoice 300M — Skipped after research. Hard blockers: requires Python 3.10 (ttsfrd no cp312 wheel), 16+ GB RAM for CPU inference, 8-10 GB disk for full install. Not viable on our VM.
 - [x] 2026-05-15: [tts-13] Created final TTS comparison summary at notes/tts-comparison.md. 2 engines tested successfully (Piper 8 voices, Kokoro 1 voice, both 2.9x realtime), 10 engines skipped due to hardware/license/install constraints. Recommendation: Piper + Thorsten as primary, Kokoro as secondary.
+- [x] 2026-05-15: [tts-retry-1] Coqui XTTS v2 RETRIED SUCCESSFULLY. Previous "no space" claim was wrong — it fits fine (venv 1.7 GB + model 1.8 GB = 3.5 GB). Installed coqui-tts + PyTorch CPU + torchcodec. Generated German samples with 3 speakers (1 male, 2 female). Male voice 0.81x realtime, female 0.33-0.40x realtime. Voice cloning also works. 65 built-in speakers, CPML non-commercial license. Install script: scripts/install-xtts.sh. Audio sent to Discord.
