@@ -2,16 +2,7 @@
 
 ## Pending
 
-### TTS Testing: Best German Multi-Speaker TTS for CPU (4 vCPU, 8GB RAM, no GPU)
-
-Research completed: see /home/z/repos/workspace/notes/tts-research.md
-Results so far: Piper (tts-1) and Kokoro (tts-2) tested successfully, both ~2.9x realtime.
-
-- [ ] **[tts-8] Try CosyVoice (300M model)**
-  LLM-based by Alibaba, Apache 2.0 license (commercial OK), German is officially supported. Complex install (clone from source, Python 3.10). Try the 300M model — may be tight on 8 GB RAM. If it fits, generate sample and evaluate quality advantage over lighter options.
-
-- [ ] **[tts-13] Create TTS comparison summary**
-  After trying remaining viable engines (or skipping those that don't fit), write a comparison summary to /home/z/repos/workspace/notes/tts-comparison.md. Include: quality ranking, speed benchmark, RAM usage, pros/cons, recommended engine. Send a summary table to Discord. Wait for user to pick their favorite.
+(no pending tasks — TTS evaluation complete)
 
 ## Skipped (research findings)
 - ~~[tts-3] MeloTTS~~ — No German support (Issue #145 open, no model released)
@@ -19,6 +10,7 @@ Results so far: Piper (tts-1) and Kokoro (tts-2) tested successfully, both ~2.9x
 - ~~[tts-5] Coqui XTTS v2~~ — Model download (2GB) exceeds VM disk (10GB total, ~7GB usable). Also requires PyTorch + many deps that fill disk. CPU inference extremely slow (timed out).
 - ~~[tts-6] F5-TTS~~ — Requires reference audio for voice cloning (no zero-shot without sample). Would need Piper installed first to generate reference. Heavy PyTorch deps conflict with disk space. CC-BY-NC non-commercial license.
 - ~~[tts-7] StyleTTS2~~ — English only, author unresponsive to multilingual requests
+- ~~[tts-8] CosyVoice 300M~~ — Requires Python 3.10 (ttsfrd has no cp312 wheel), 16+ GB RAM for CPU inference, 8-10 GB disk for full install. Multiple hard blockers on our VM.
 - ~~[tts-9] Thorsten-Voice~~ — Voice dataset, not a separate engine. Already covered under Piper TTS
 - ~~[tts-10] MMS TTS~~ — Robotic quality + CC-BY-NC 4.0 non-commercial license
 - ~~[tts-11] ZeroVOX~~ — pip install fails: readline build error + missing deps (h5py, nemo_text_processing, nltk, lightning). Early alpha quality not worth the dependency pain.
@@ -42,4 +34,6 @@ Results so far: Piper (tts-1) and Kokoro (tts-2) tested successfully, both ~2.9x
 - [x] 2026-05-14: [tts-research] Research and rank 12 TTS engines for German on CPU. Top 3: Piper+Thorsten, Kokoro, ZeroVOX. 5 engines eliminated (no German or doesn't fit hardware). Findings in notes/tts-research.md.
 - [x] 2026-05-15: [tts-1] Try Piper TTS + Thorsten German voice. Installed piper-tts (venv), downloaded high-quality (109 MB) + emotional medium (74 MB, 8 speakers) models. Generated 32s neutral sample in 11s (~2.9x realtime). Tested all 8 emotions. Clear natural German, male only. Install script: scripts/install-piper.sh. Audio sent to Discord.
 - [x] 2026-05-15: [tts-2] Try Kokoro-82M German (Martin voice). Installed kokoro-onnx, downloaded community model (311 MB) + voices (511 KB) from huggingFresse. Generated 33.9s German sample in 11.7s (~2.9x realtime). Same speed as Piper, 3x larger model, 1 voice, smoother timbre. Audio sent to Discord.
-- [x] 2026-05-15: [tts-blocked] Attempted Coqui XTTS v2, F5-TTS, ZeroVOX, Bark. All blocked by VM constraints: 10GB disk (XTTS 2GB model + PyTorch deps exceed space), dependency build failures (ZeroVOX readline), PyTorch compat issues (Bark), voice cloning requires reference audio (F5-TTS). Only CosyVoice remains to try.
+- [x] 2026-05-15: [tts-blocked] Attempted Coqui XTTS v2, F5-TTS, ZeroVOX, Bark. All blocked by VM constraints: 10GB disk (XTTS 2GB model + PyTorch deps exceed space), dependency build failures (ZeroVOX readline), PyTorch compat issues (Bark), voice cloning requires reference audio (F5-TTS). Only CosyVoice remained to try.
+- [x] 2026-05-15: [tts-8] CosyVoice 300M — Skipped after research. Hard blockers: requires Python 3.10 (ttsfrd no cp312 wheel), 16+ GB RAM for CPU inference, 8-10 GB disk for full install. Not viable on our VM.
+- [x] 2026-05-15: [tts-13] Created final TTS comparison summary at notes/tts-comparison.md. 2 engines tested successfully (Piper 8 voices, Kokoro 1 voice, both 2.9x realtime), 10 engines skipped due to hardware/license/install constraints. Recommendation: Piper + Thorsten as primary, Kokoro as secondary.
